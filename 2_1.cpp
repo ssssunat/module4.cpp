@@ -1,16 +1,24 @@
+//В город N приехал цирк с командой атлетов. 
+//Они хотят удивить горожан города N — выстроить из своих тел башню максимальной высоты.
+//Башня — это цепочка атлетов, первый стоит на земле, второй стоит у него на плечах, третий стоит на плечах у второго и т.д.
+//Каждый атлет характеризуется силой si (kg) и массой mi (kg). Сила — это максимальная масса, которую атлет способен держать у себя на плечах.
+//К сожалению ни один из атлетов не умеет программировать, так как всю жизнь они занимались физической подготовкой, и у них не было времени на изучение языков программирования.
+//Помогите им, напишите программу, которая определит максимальную высоту башни, которую они могут составить. 
+//Известно, что если атлет тяжелее, то он и сильнее: если mi>mj, то si > sj. Атлеты равной массы могут иметь различную силу.
+
+
 #include<bits/stdc++.h>
-using namespace std;
 int main()
 {
-    long  i,a,b;
-    vector<long>mass,strength;
-    while(cin>>a>>b)
+    long  i,mi,si;//i-счетчик
+    std::vector<long>mass,strength;
+    while(std::cin>>mi>>si)
     {
-        mass.push_back(a);
-        strength.push_back(b);
+        mass.push_back(mi);
+        strength.push_back(si);
     }
-    sort(mass.begin(), mass.end());
-    sort(strength.begin(), strength.end());
+    std::sort(mass.begin(), mass.end());
+    std::sort(strength.begin(), strength.end());
     long Mass = mass[0],
          Height = 1;
     for(i=1;i<mass.size();i++)
@@ -21,8 +29,6 @@ int main()
             Height++;
          }
     }
-    cout<<Height;
+    std::cout<<Height;
     return 0;
 }
-
-
